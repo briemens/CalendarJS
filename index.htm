@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link href="calendar.css" rel="stylesheet" type="text/css"/>
+	<title>Calendar Demo</title>
+	<script src="jquery.js"></script>
+	<script src="calendar.js"></script>
+</head>
+<body>
+<h1>Calendar Demo</h1>
+
+<div id="main">
+	<div id="calendar"></div>
+</div>
+<script>
+	$(function () {
+		var selectableDates = [
+			new Date(2011, 5 - 1, 18),
+			new Date(2011, 4 - 1, 15)
+		];
+
+		$("#calendar").hide()
+			.calendar(selectableDates, function onDateSelected(date) {
+				console.log("Date selected", date);
+				$(this).fadeOut(400);
+			}).fadeIn(400);
+	});
+</script>
+</body>
+</html>

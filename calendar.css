@@ -1,0 +1,71 @@
+body {
+	font-family: helvetica;
+	font-size:12pt;
+}
+.calendar {
+	width: 280px; /* 7 * 40px */
+	margin:0;
+	padding:0;
+	overflow:hidden;
+	cursor:default;
+}
+.calendar h3, .calendar h4,
+.calendar .previous, .calendar .next {
+	float:left;
+	background-color: black;
+	color:white;
+	width: 40%;
+	text-align: center;
+	margin:0;
+	padding:0;
+	font-size:13pt;
+	line-height:2em;
+}
+.calendar .previous, .calendar .next {
+	width: 10%;
+	text-decoration:none;
+}
+.calendar .week {
+	list-style: none;
+	position:relative;
+	float:left;
+	display:inline;
+	margin:0;
+	padding:0;
+	background-color: silver;
+}
+.calendar .week.header {
+	font-weight:bold;
+	background-color: gray;
+	color:white;
+}
+.calendar .day {
+	text-align:center;
+	position:relative;
+	list-style: none;
+	width: 40px;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+	display: block;
+	margin:0;
+	padding:0;
+}
+.calendar .day.index6,
+.calendar .day.index7 {
+	background-color: #eee;
+}
+.calendar .header .day.index6,
+.calendar .header .day.index7 {
+	background-color: #AAA;
+}
+.calendar .special.day,
+.calendar .special.day a,
+.calendar .special.day a:link,
+.calendar .special.day a:active {
+	background-color: steelblue;
+	color: white;
+}
+.calendar .today {
+	color: red;
+}
