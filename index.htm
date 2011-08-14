@@ -1,29 +1,75 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<link href="calendar.css" rel="stylesheet" type="text/css"/>
+	<link href="calendar-0.0.1.css" rel="stylesheet" type="text/css"/>
 	<title>Calendar Demo</title>
 	<script src="jquery.js"></script>
-	<script src="calendar.js"></script>
+	<script src="calendar-0.0.1.js"></script>
 </head>
 <body>
 <h1>Calendar Demo</h1>
 
 <div id="main">
-	<div id="calendar"></div>
+	<label for="calendar1">Limited single selection</label>
+	<input type="text" id="calendar1" name="calendar1" class="calendar selectabledates" value="" />
+
+	<label for="calendar2">Limited multiple selection</label>
+	<input type="text" id="calendar2" name="calendar2" class="calendar multipleselectabledates"/>
+
+	<label for="calendar3">Single selection</label>
+	<input type="text" id="calendar3" name="calendar3" class="calendar singleselection" value="Sun Apr 03 2011"/>
+
+	<label for="calendar4">Multiple selection</label>
+	<input type="text" id="calendar4" name="calendar4" class="calendar multipleselection" value="Sun Apr 03 2011; Sun Apr 10 2011; Sun Apr 17 2011"/>
 </div>
 <script>
+	/*global $, console*/
 	$(function () {
-		var selectableDates = [
-			new Date(2011, 5 - 1, 18),
-			new Date(2011, 4 - 1, 15)
-		];
+		$(".calendar.selectabledates")
+			.calendar({
+				selectableDates: [
+					new Date(2011, 5 - 1, 18),
+					new Date(2011, 4 - 1, 16)
+				],
+				onselected: function onDateSelected(date) {
+					console.log("Date selected", date);
+					console.log("this", this);
+					$("input", this).fadeIn(400);
+				}
+			}).hide().fadeIn(1000);
 
-		$("#calendar").hide()
-			.calendar(selectableDates, function onDateSelected(date) {
-				console.log("Date selected", date);
-				$(this).fadeOut(400);
-			}).fadeIn(400);
+		$(".calendar.multipleselectabledates")
+			.calendar({
+				multiple: true,
+				selectableDates: [
+					new Date(2011, 5 - 1, 18),
+					new Date(2011, 4 - 1, 16)
+				],
+				onselected: function onDateSelected(date) {
+					console.log("Date selected", date);
+					console.log("this", this);
+					$("input", this).fadeIn(400);
+				}
+			}).hide().fadeIn(1000);
+
+		$(".calendar.singleselection")
+			.calendar({
+				multiple: false,
+				onselected: function onDateSelected(date) {
+					console.log("Date selected", date);
+					$("input", this).fadeIn(400);
+				}
+			}).hide().fadeIn(1000);
+
+		$(".calendar.multipleselection")
+			.calendar({
+				multiple: true,
+				onselected: function onDateSelected(date) {
+					console.log("Date selected", date);
+					$("input", this).fadeIn(400);
+				}
+			}).hide().fadeIn(1000);
+
 	});
 </script>
 </body>

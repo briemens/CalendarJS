@@ -59,13 +59,33 @@ body {
 .calendar .header .day.index7 {
 	background-color: #AAA;
 }
-.calendar .special.day,
+.calendar .day.today {
+	color: red;
+}
+.calendar .special.day {
+	background-color: #4682b4;
+}
 .calendar .special.day a,
 .calendar .special.day a:link,
-.calendar .special.day a:active {
-	background-color: steelblue;
+.calendar .special.day a:active,
+.calendar .special.day a:visited {
+	text-decoration: none;
 	color: white;
 }
-.calendar .today {
-	color: red;
+.calendar .day.special.today
+.calendar .day.special.today a,
+.calendar .day.special.today a:link,
+.calendar .day.special.today a:active,
+.calendar .day.special.today a:visited {
+	color: #ffa500;
+}
+.calendar .selected.day {
+	background-color:orange;
+}
+.calendar .day.special.selected
+.calendar .day.special.selected a,
+.calendar .day.special.selected a:link,
+.calendar .day.special.selected a:active,
+.calendar .day.special.selected a:visited {
+	color:white;
 }
